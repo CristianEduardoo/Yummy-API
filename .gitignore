@@ -1,0 +1,29 @@
+# Entornos virtuales
+venv/
+env/
+media/
+staticfiles/
+.env
+data/
+
+# Archivos específicos de Python
+*.pyc
+__pycache__/
+
+# Archivos generados automáticamente
+.DS_Store
+.vscode/      
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Ignorar archivos de certificados si no son necesarios
+cert.crt
+cert.key
+
+# Extras
+.dockerignore
