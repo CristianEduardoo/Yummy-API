@@ -1,22 +1,16 @@
-"""
-URL configuration for RestaurantAPI project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+""" PARA ACCEDER A LOS ESQUEMAS CREADOS archivo.yml desde la web, tenemos que establecer las url's """
+from drf_spectacular.views import (SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")), # URL de Autenticacion y Autorización de Django
+    path("api/v1/", include("API.urls", namespace ="api_restful")), # Registramos las Urls de nuestra API
+    
+    # Rutas para la documentación de la API generada con drf_spectacular
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),  # Genera el archivo YAML
+    path("api/schema/swagger-ui/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),  # Swagger UI
+    path("api/schema/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),  # ReDoc UI
 ]
