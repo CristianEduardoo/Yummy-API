@@ -1,10 +1,11 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
 class MenuItemBase(models.Model):
     titulo = models.CharField(max_length=45)
-    descripcion = models.CharField(max_length=260)
+    descripcion = models.CharField(max_length=100)
     fecha_alta = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -12,7 +13,13 @@ class MenuItemBase(models.Model):
 
 
 class Entrantes(MenuItemBase):
-    pass
+    def save(self, *args, **kwargs):
+        max_items = 5
+        if Entrantes.objects.count() >= max_items:
+            raise ValidationError(
+                f"Ya existen {max_items} entrantes. No se pueden crear más."
+            )
+        super().save(*args, **kwargs)
 
 
 class Principales(MenuItemBase):

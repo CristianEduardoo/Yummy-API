@@ -5,7 +5,7 @@ from django.urls import path, include
 from drf_spectacular.views import (SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView)
 
 urlpatterns = [
-    path("admin", admin.site.urls),
+    path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")), # URL de Autenticacion y Autorización de Django
     path("api/v1/", include("API.urls", namespace ="api_restful")), # Registramos las Urls de nuestra API
     

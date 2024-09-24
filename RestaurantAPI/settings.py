@@ -58,7 +58,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app users
+    # "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app users
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -106,10 +106,10 @@ else :
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "NAME": "restaurant$default",
+            "NAME": "restaurantapi$default",
             "USER": env("USER"),
             "PASSWORD": env("PASSWORD"),
-            "HOST": "restaurant.mysql.pythonanywhere-services.com",
+            "HOST": "restaurantapi.mysql.pythonanywhere-services.com",
             "PORT": "3306",
         }
     }
