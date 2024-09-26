@@ -1,0 +1,9 @@
+{% extends "includes/base_login.html" %}
+
+{% block content %}
+    <div class="loggedout">
+        <h2>Sesión cerrada correctamente</h2>
+        <p>¿Quieres iniciar sessión?</p>
+        <a href="{% url 'login' %}"> <button>Iniciar sesión</button> </a>
+    </div>
+{% endblock content %}

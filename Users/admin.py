@@ -6,7 +6,7 @@ from .models import User
 admin.site.unregister(Group)
 
 # Registramos el modelo User
-@admin.register(User)
+# @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ["username", "email", "phone"]
     search_fields = ["email", "username"]

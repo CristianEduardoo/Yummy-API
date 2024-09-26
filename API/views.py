@@ -45,3 +45,18 @@ class BebidaViewSet(MenuItemViewSet):
 class PrecioViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Precio.objects.all()
     serializer_class = PrecioSerializer
+    
+    # Método para validación personalizada en la creación de un nuevo objeto
+    def create(self, request, *args, **kwargs):
+        max_items = 1  # Límite máximo de 1 precio
+        current_count = Precio.objects.count()
+
+        if current_count >= max_items:
+            return Response(
+                {
+                    "error": f"Solo se puede crear {max_items} solo {Precio._meta.verbose_name_plural}."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        return super().create(request, *args, **kwargs)

@@ -16,7 +16,7 @@ class BaseMenuItemAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # Lógica reutilizable para limitar los elementos
         if self.model.objects.count() >= self.max_items:
-            return False  # No permitirá agregar más, desactiva el botón
+            return False  # No permitirá agregar más, desactiva el botón de agregar 
         return True
 
 

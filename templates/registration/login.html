@@ -1,0 +1,12 @@
+{% extends "includes/base_login.html" %}
+
+{% block content %}
+    <h2>Iniciar sesión</h2>
+    <div class='contentedor-login'>
+        <form action='' method='POST' >
+            {% csrf_token %} {% comment %} generamos un token de seguridad {% endcomment %}
+            {{form.as_p}} {% comment %} Se trae el fromulario que tiene Django internamente {% endcomment %}
+            <input class="send" type="submit" value="Iniciar Sessión">
+        </form>
+    </div>
+{% endblock content %}

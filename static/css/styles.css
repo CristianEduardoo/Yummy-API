@@ -1,0 +1,56 @@
+/* ------------------------------------- GLOBALES --------------------------------------- */
+html {
+    font-size: 62.5%; /* truco para formatear la pag y usar la unidad de medida rem, en html y body */
+    box-sizing: border-box;
+    font: 1.3rem / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* Con estas 2 lineas (html y body) ya podemos escribir codigo en rem. 1rem = 10px... 60px=6rem */
+    padding: 1rem;
+}
+
+h1,h2{
+    text-align: center;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+.contentedor-main{
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.contentedor-login{
+    max-width: 18rem;
+    margin: 0 auto;
+}
+
+#id_username, #id_password{
+    height: 2rem;
+}
+
+.send{
+    padding: 0rem !important;
+    height: 2rem !important;
+}
+
+.loggedout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loggedout button{
+    height: 2rem !important; 
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+

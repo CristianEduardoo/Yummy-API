@@ -106,10 +106,10 @@ else :
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "NAME": "restaurantapi$default",
+            "NAME": "yummy$default",
             "USER": env("USER"),
             "PASSWORD": env("PASSWORD"),
-            "HOST": "restaurantapi.mysql.pythonanywhere-services.com",
+            "HOST": "yummy.mysql.pythonanywhere-services.com",
             "PORT": "3306",
         }
     }
@@ -151,6 +151,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # first 1
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -158,9 +162,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # =============== LOGIN =============== #
-# IMPORTANTE SI ES LOGIN -> REDIRECCIONAMOS. ambas constantes estan relacionadas
-# LOGIN_REDIRECT_URL = "namespaceraices:main"
-# LOGIN_URL = "login"  # se redirigirá hacer login, si intenta acceder a una vista protegida sin haber iniciado sesión primero
+LOGIN_REDIRECT_URL = "/admin/" # Donde el usuario autenticado será redirigido después de iniciar sesión
+LOGIN_URL = "login"  # Define la URL donde se encuentra el formulario de login
 # Django redirigirá al usuario a la página de inicio de sesión, lo tiene por defecto, solo hay que crear el template
 
 # =============== LOGOUT =============== #

@@ -13,13 +13,15 @@ class MenuItemBase(models.Model):
 
 
 class Entrantes(MenuItemBase):
-    def save(self, *args, **kwargs):
-        max_items = 5
-        if Entrantes.objects.count() >= max_items:
-            raise ValidationError(
-                f"Ya existen {max_items} entrantes. No se pueden crear más."
-            )
-        super().save(*args, **kwargs)
+    pass
+    """ Comentado en caso se necesite una validación global """
+    # def save(self, *args, **kwargs):
+    #     max_items = 5
+    #     if Entrantes.objects.count() >= max_items:
+    #         raise ValidationError(
+    #             f"Ya existen {max_items} entrantes. Contante con su programador para actualizarlo."
+    #         )
+    #     super().save(*args, **kwargs)
 
 
 class Principales(MenuItemBase):
