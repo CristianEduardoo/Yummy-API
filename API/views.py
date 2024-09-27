@@ -45,7 +45,9 @@ class BebidaViewSet(MenuItemViewSet):
 class PrecioViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Precio.objects.all()
     serializer_class = PrecioSerializer
-    
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
     # Método para validación personalizada en la creación de un nuevo objeto
     def create(self, request, *args, **kwargs):
         max_items = 1  # Límite máximo de 1 precio
