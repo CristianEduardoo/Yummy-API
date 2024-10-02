@@ -2,18 +2,38 @@
 
 {% block content %}
 
-    <h2>Iniciar sesión</h2>
-    <div class='contentedor-login'>
-        <form action='' method='POST' >
-            {% csrf_token %} {% comment %} generamos un token de seguridad {% endcomment %}
-            {{form.as_p}} {% comment %} Se trae el fromulario que tiene Django internamente {% endcomment %}
-            <input class="send" type="submit" value="Iniciar Sessión">
-        </form>
-    </div>
+            <div class="principal">
+            <section class="section1">
+                <div class="probando-img"></div>
+            </section>
+            <section class="section2">
+                <div class="">
+                    <form class="form" action="{% url 'namespaceusers:login' %}" method="POST">
+                        {% csrf_token %}
+                        <h1>Bienvenido</h1>
+                        <p>Estamos encantados de verte de vuelta</p>
+                        <div class="group login-input">
+                            <div class="field-group">
+                                <i class="fa-regular fa-user icon"></i>
+                                <input class="input-field" id="email" type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <!-- aqui el bloque de error de user -->
+                        </div>
 
-    {% if request.user.is_authenticated %}
-        <script>
-            window.location.href = "{% url 'admin:index' %}";  // Redirige al área de administración
-        </script>
-    {% endif %}
+                        <div class="group login-input">
+                            <div class="field-group">
+                                <i class="fa-solid fa-lock icon"></i>
+                                <input class="input-field" id="password" type="password" name="password" placeholder="Contraseña" required>
+                                <i class="fa-regular fa-eye-slash login__eye" id="login-eye"></i>
+                            </div>
+                            <!-- aqui el bloque de error de password -->
+                        </div>
+
+                        <div class="group div-enviar">
+                            <input class="enviar" type="submit" value="Iniciar Sesión">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
 {% endblock content %}

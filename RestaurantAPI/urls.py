@@ -11,6 +11,7 @@ urlpatterns = [
     
     # Ruta que redirige a login como la página principal
     path('', RedirectView.as_view(url='/accounts/login/', permanent=False), name='login_redirect'),
+    path("login-user/", include("Users.urls", namespace="login-user")),
 
     # Rutas para la API
     path('api/v1/', include('API.urls', namespace="api_restful")),
