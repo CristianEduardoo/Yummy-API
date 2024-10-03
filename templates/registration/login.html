@@ -1,17 +1,19 @@
 {% extends "includes/base_login.html" %}
+{% load static %}
 
 {% block content %}
-
-            <div class="principal">
+        <div class="principal">
             <section class="section1">
-                <div class="probando-img"></div>
+                <div class="probando-img">
+                    {% comment %} <img src="{% static 'img/YummyAPI.png'%}"> {% endcomment %}
+                </div>
             </section>
             <section class="section2">
-                <div class="">
-                    <form class="form" action="{% url 'namespaceusers:login' %}" method="POST">
+                    <form class="form" action="{% url 'namespaceusers:login' %}" method="POST"> <!-- Valida los campos -->
                         {% csrf_token %}
                         <h1>Bienvenido</h1>
                         <p>Estamos encantados de verte de vuelta</p>
+
                         <div class="group login-input">
                             <div class="field-group">
                                 <i class="fa-regular fa-user icon"></i>
@@ -33,7 +35,6 @@
                             <input class="enviar" type="submit" value="Iniciar Sesión">
                         </div>
                     </form>
-                </div>
             </section>
         </div>
 {% endblock content %}

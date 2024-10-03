@@ -52,7 +52,7 @@ function validateField(fieldName, fieldValue) {
     if (!fieldValue) {
       showFieldError(fieldName, "El campo contraseña es obligatorio");
     } else if (!isValidPassword(fieldValue)) {
-      const extraDiv = document.querySelector(".olvidaste-rigistro");
+      const extraDiv = document.querySelector(".div-enviar");
       extraDiv.classList.add("extraError");
       showFieldError(
         fieldName,
@@ -93,6 +93,7 @@ function showFieldError(fieldName, errorMessage) {
 
   // Agrega la clase 'is-invalid' al campo para resaltar el error
   field.classList.add("is-invalid");
+  groupDiv.classList.add("is-invalid");
 }
 
 // Función para limpiar mensajes de error y clases inválidas
@@ -138,6 +139,8 @@ function validateForm() {
     showFieldError(passwordName, "El campo contraseña es obligatorio");
   } else if (!isValidPassword(passwordValue)) {
     isValid = false;
+    const extraDiv = document.querySelector(".div-enviars");
+    extraDiv.classList.add("extraError");
     showFieldError(passwordName, "La contraseña debe tener al menos 8 caracteres y contener letras, números y símbolos");
   }
 
@@ -157,7 +160,7 @@ function submitForm(event) {
       method: form.method,
       body: formData,
       headers: {
-        "X-Requested-With": "XMLHttpRequest", // Asegúrate de enviar esta cabecera para indicar que es una petición AJAX
+        "X-Requested-With": "XMLHttpRequest", // Cabecera para indicar que es una petición AJAX
       },
     })
       .then((response) => {

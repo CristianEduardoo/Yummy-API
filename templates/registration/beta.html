@@ -1,0 +1,62 @@
+{% extends "includes/base_login.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+      <!-- Columna izquierda: Imagen o logo -->
+      <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
+        <img src="{% static 'img/icon.png' %}" alt="Logo" class="img-fluid" style="max-width: 70%;">
+      </div>
+
+      <!-- Columna derecha: Formulario de login -->
+      <div class="col-lg-6 d-flex align-items-center justify-content-center">
+        <div class="card p-4 shadow-lg w-100" style="max-width: 400px;">
+          <div class="card-body">
+            <h1 class="text-center mb-4">Bienvenido</h1>
+            <p class="text-center text-muted mb-4">Estamos encantados de verte de vuelta</p>
+            
+            <form class="form" action="{% url 'namespaceusers:login' %}" method="POST">
+              {% csrf_token %}
+              
+              <!-- Campo de Email -->
+              <div class="group mb-3">
+                <div class="field-group input-group {% if form.email.errors %}is-invalid{% endif %}">
+                  <span class="input-group-text">
+                    <i class="fa-regular fa-user"></i>
+                  </span>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <!-- aqui el bloque de error de user -->
+              </div>
+
+              <!-- Campo de Contraseña -->
+              <div class="group mb-3">
+                <div class="field-group input-group">
+                  <span class="input-group-text">
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                  <span class="input-group-text">
+                    <i class="fa-regular fa-eye-slash" id="login-eye"></i>
+                  </span>
+                </div>
+                <!-- aqui el bloque de error de password -->
+              </div>
+
+              <!-- Botón de envío -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </div>
+
+              <!-- Opción de contraseña olvidada -->
+              <div class="mt-3 text-center">
+                <a href="#" class="text-muted">¿Olvidaste tu contraseña?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
