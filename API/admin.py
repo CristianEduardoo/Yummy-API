@@ -16,8 +16,12 @@ class BaseMenuItemAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # Lógica reutilizable para limitar los elementos
         if self.model.objects.count() >= self.max_items:
-            return False  # No permitirá agregar más, desactiva el botón de agregar 
+            return False  # No permitirá agregar más, desactiva el botón de agregar
         return True
+
+    # Añadir el archivo JS personalizado usando la clase Media
+    # class Media:
+    # js = ("js/admin_custom.js",)  # Ruta relativa dentro de la carpeta /static
 
 
 # Registramos cada clase utilizando la clase base

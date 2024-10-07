@@ -61,7 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app users
+    "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app Users
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -200,12 +200,17 @@ JAZZMIN_SETTINGS = {
     "site_title": "Yummy API",
     "site_header": "Admin Yummy API",
     "site_brand": "Admin Yummy API",
-    "site_logo": "img/icon.png",
+    "site_icon": "img/icon-32x32.png",
+    "site_logo": "img/Yummy-foto.png",
     "welcome_sign": "Admin Yummy API",
     # Links to put along the top menu
     "topmenu_links": [
         {"app": "API"},
-        {"name": "GitHub Code", "url": "https://github.com/CristianEduardoo/Restaurant-API", "new_window": True},
+        {
+            "name": "GitHub Code",
+            "url": "https://github.com/CristianEduardoo/Restaurant-API",
+            "new_window": True,
+        },
     ],
     # Hide these apps when generating side menu e.g (auth)
     "hide_apps": [

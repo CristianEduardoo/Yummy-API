@@ -179,6 +179,9 @@ function submitForm(event) {
         Swal.fire({
           icon: "success",
           title: "¡Inicio de sesión exitoso!",
+          customClass: {
+            popup: "swal2-custom-popup", // Clase personalizada para la alerta
+          },
           showConfirmButton: false,
           timer: 1500, // Cerrar automáticamente después de 1.5 segundos
         }).then(() => {

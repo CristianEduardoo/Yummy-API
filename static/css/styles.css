@@ -43,7 +43,7 @@ p{
 }
 
 .probando-img {
-    background-image: url("../img/YummyAPI.png");
+    background-image: url("../img/YummyAPI-Portada.png");
     min-height: 17rem;
     background-position: top center;
     background-position-y: -20px;
@@ -101,6 +101,8 @@ p{
 
 .form h1{
   font-size: 5.5rem;
+  font-weight: initial;
+  margin-bottom: 1rem;
 }
 
 .group input {
@@ -152,7 +154,7 @@ p{
 }
 
 .div-enviar{
-    padding-top: 1.5rem;
+  padding-top: 2rem;
 }
 
 
@@ -167,4 +169,33 @@ p{
 .extraError {
   margin-top: -2.6rem;
 }
-/* ------------------------------------- Registro --------------------------------------- */
+
+/*=============== Estilo personalizado para la alerta ===============*/
+.swal2-custom-popup h2{
+  font-weight: 400;
+}
+
+/* ------------------------------------- logged_out --------------------------------------- */
+.div-LoggedOut p{
+    color: goldenrod;
+}
+
+.con-otros{
+    margin-top: 4rem;
+}
+
+.con-otros a {
+    border-radius: 1rem;
+    border: 0.1rem solid #1c1c1c;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0rem;
+    padding: 1rem;
+    width: 100%;
+    text-decoration: none;
+}
+
+.LoggedOut_btn a{
+    background: #1c1c1c;
+    color: white;
+}
