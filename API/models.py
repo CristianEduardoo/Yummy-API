@@ -13,7 +13,10 @@ class MenuItemBase(models.Model):
 
 
 class Entrantes(MenuItemBase):
-    pass
+    class Meta:
+        verbose_name = "Entrantes"
+        verbose_name_plural = "Entrantes"
+
     """ Comentado en caso se necesite una validación global """
     # def save(self, *args, **kwargs):
     #     max_items = 5
@@ -25,7 +28,9 @@ class Entrantes(MenuItemBase):
 
 
 class Principales(MenuItemBase):
-    pass
+    class Meta:
+        verbose_name = "Principales"
+        verbose_name_plural = "Principales"
 
 
 class Postre(MenuItemBase):
@@ -37,5 +42,9 @@ class Bebida(MenuItemBase):
 
 
 class Precio(models.Model):
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    precio = models.DecimalField(max_digits=4, decimal_places=2)
     fecha_alta = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = "Precios"
+        verbose_name_plural = "Precio"

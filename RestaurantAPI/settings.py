@@ -27,7 +27,7 @@ else:
 
 
 ALLOWED_HOSTS = [
-    "restaurantapi.pythonanywhere.com",
+    "apiyummy.pythonanywhere.com",
     "localhost",
     "127.0.0.1",
 ]
@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,7 +46,9 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "drf_spectacular",
-    "API",  # aplicacion creada para la API
+    
+    # Customs apps
+    "API",
     "Users",
 ]
 
@@ -58,7 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app users
+    "Users.middleware.AutoLogoutMiddleware",  # Middleware personalizado en la app Users
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -106,10 +109,10 @@ else :
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "NAME": "yummy$default",
+            "NAME": "apiyummy$default",
             "USER": env("USER"),
             "PASSWORD": env("PASSWORD"),
-            "HOST": "yummy.mysql.pythonanywhere-services.com",
+            "HOST": "apiyummy.mysql.pythonanywhere-services.com",
             "PORT": "3306",
         }
     }
@@ -191,3 +194,75 @@ SPECTACULAR_SETTINGS = {
 
 # =============== Custom User =============== #
 AUTH_USER_MODEL = "Users.User"
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Yummy API",
+    "site_header": "Admin Yummy API",
+    "site_brand": "Admin Yummy API",
+    "site_icon": "img/icon-32x32.png",
+    "site_logo": "img/Yummy-foto.png",
+    "welcome_sign": "Admin Yummy API",
+    # Links to put along the top menu
+    "topmenu_links": [
+        {"app": "API"},
+        {
+            "name": "GitHub Code",
+            "url": "https://github.com/CristianEduardoo/Restaurant-API",
+            "new_window": True,
+        },
+    ],
+    # Hide these apps when generating side menu e.g (auth)
+    "hide_apps": [
+        # "Users",
+    ],
+    # Personalizar iconos del menú lateral
+    "icons": {
+        "API.entrantes": "fas fa-utensils",  # Icono de utensilios de cocina
+        "API.principales": "fas fa-hamburger",  # Icono de hamburguesa
+        "API.postre": "fas fa-ice-cream",  # Icono de helado
+        "API.bebida": "fas fa-coffee",  # Icono de taza de café
+        "API.precio": "fas fa-dollar-sign",  # Icono de signo de dólar
+    },
+    # Ordenar los modelos según tus preferencias
+    "order_with_respect_to": [
+        "API.entrantes",
+        "API.principales",
+        "API.postre",
+        "API.bebida",
+        "API.precio",
+    ],
+}
+
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-success",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "cosmo",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary rounded-sm",
+        "secondary": "btn-outline-secondary rounded-sm",
+        "info": "btn-outline-info rounded-sm",
+        "warning": "btn-outline-warning rounded-sm",
+        "danger": "btn-outline-danger rounded-sm",
+        "success": "btn-outline-success rounded-sm",
+    },
+}

@@ -1,0 +1,19 @@
+[class*="sidebar-dark-"] {
+  background-color: #13191f;
+}
+
+.dropdown-footer, .dropdown-header {
+    display: none;
+}
+
+.btn-group{
+    gap: 0.2rem;
+}
+
+.field-titulo a{
+    font-weight: lighter;
+}
+
+.field-precio a{
+    font-weight: lighter;
+}

@@ -2,21 +2,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!--=============== Metaetiquetas ===============-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta content="Admin-Api" name="description">
-    <meta content="Cristian castro" name="author">
+    <meta name="author" content="Cristian Castro" />
+    <meta name="description" content="Yummy Api" />
+    <title>Yummy Api</title>
 
-    <title>Restaurant-API</title>
-    <link rel="stylesheet" href="{% static 'lib/pico-main/css/pico.min.css' %}" />
+    <!-- Favicons -->
+    <link href="{% static 'img/icon-32x32.png' %}" rel="icon" type="image/x-icon">
+    <link href="{% static 'img/icon-180x180.png' %}" rel="apple-touch-icon">
+
+    <!--=============== Estilos de fuentes ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Smooch+Sans&display=swap">
+
+    <!--=============== Bibliotecas y frameworks ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/46cf9b25f7.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!--=============== CSS Personalizado ===============-->
+    <link rel="preload" href="{% static 'css/styles.css' %}" as="style">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-
+</head>
   <body>
-    <main class='contentedor-main'>
+    <main>
       {% block content %}
         {% comment %} vacios para ser heredados {% endcomment %}
       {% endblock content %}
     </main>
+
+    {% if request.user.is_authenticated %}
+        <script>
+            window.location.href = "{% url 'admin:index' %}";  // Redirige al área de administración
+        </script>
+    {% endif %}
+
+    <script src="{% static 'js/login.js' %}"></script>
   </body>
 </html>

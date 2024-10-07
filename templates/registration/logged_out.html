@@ -1,9 +1,21 @@
 {% extends "includes/base_login.html" %}
+{% load static %}
 
 {% block content %}
-    <div class="loggedout">
-        <h2>Sesión cerrada correctamente</h2>
-        <p>¿Quieres iniciar sessión?</p>
-        <a href="{% url 'login' %}"> <button>Iniciar sesión</button> </a>
-    </div>
+    <main>
+        <div class="principal">
+            <section class="section1">
+                <div class="probando-img"></div>
+            </section>
+            <section class="section2">
+                <div class="div-LoggedOut">
+                    <h2>Sesión cerrada correctamente</h2>
+                    <p>¿Quieres iniciar sessión?</p>
+                    <div class="con-otros LoggedOut_btn">
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 {% endblock content %}

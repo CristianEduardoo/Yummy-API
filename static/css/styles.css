@@ -1,56 +1,201 @@
 /* ------------------------------------- GLOBALES --------------------------------------- */
 html {
-    font-size: 62.5%; /* truco para formatear la pag y usar la unidad de medida rem, en html y body */
-    box-sizing: border-box;
-    font: 1.3rem / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    font-size: 16px; /* Con estas 2 lineas (html y body) ya podemos escribir codigo en rem. 1rem = 10px... 60px=6rem */
-    padding: 1rem;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-h1,h2{
-    text-align: center;
+h1 {
+  text-align: center;
+} 
+
+p{
+  text-align: center;
+}
+
+/* ------------------------------------- Login --------------------------------------- */
+
+.principal{
+  min-height: 100vh;
+}
+
+.section1, .section2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.section1{
+  margin-bottom: 8rem ;
+}
+
+.probando-img {
+    background-image: url("../img/YummyAPI-Portada.png");
+    min-height: 17rem;
+    background-position: top center;
+    background-position-y: -20px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    box-shadow: 0rem 1rem 1rem rgba(32, 32, 32, 0.5);
+    width: 100%;
+
+  /* background-size: cover auto;
+  aspect-ratio: 16/9; Ajusta esta relación según la proporción de tu imagen */
+}
+
+@media (min-width:768px) {
+    .probando-img{
+        background-position-y: -86px;
+    }
 }
 
 
-/* ------------------------------------------------------------------------------------- */
+@media (min-width:992px) {
+   .principal{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-.contentedor-main{
-    max-width: 95%;
-    margin: 0 auto;
+   }
+
+   .probando-img{
+      height: 95%;
+      width: 70%;
+      border-radius: 35px;
+      background-position-y: 0px;
+   }
+
+   .section1{
+      margin-bottom: 0rem ;
+      grid-column: 2/3;
+      grid-row: -1/1;
+    }
 }
 
-.contentedor-login{
-    max-width: 18rem;
-    margin: 0 auto;
+.form{
+  width: 33rem;
+  margin: 0 auto;
 }
 
-#id_username, #id_password{
-    height: 2rem;
+@media (min-width:768px) {
+   .form{
+      width: 40rem;
+    }
 }
 
-.send{
-    padding: 0rem !important;
-    height: 2rem !important;
+.form h1, p{
+  margin: 0rem;
 }
 
-.loggedout{
+.form h1{
+  font-size: 5.5rem;
+  font-weight: initial;
+  margin-bottom: 1rem;
+}
+
+.group input {
+  border-radius: 1rem;
+  background: #f2f2f2;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+}
+
+.login-input input{
+  padding-left: 4rem;
+}
+
+.input-field{
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.div-enviar input:hover {
+  cursor: pointer;
+}
+
+.field-group {
+  display: flex; /* Hace que los elementos se coloquen en una fila */
+  align-items: center; /* Centra verticalmente los elementos */
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 1.5rem; /* Ajusta el margen izquierdo del icono */
+}
+
+.login__eye{
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+/*=============== Boton envio/registrar ===============*/
+.div-enviar input {
+  background: #1c1c1c;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+.div-enviar{
+  padding-top: 2rem;
+}
+
+
+/*=============== Errores ===============*/
+.error-message {
+  color: red;
+  margin-top: -1rem;
+  margin-bottom: -0.8rem;
+  font-size: 12px;
+}
+
+.extraError {
+  margin-top: -2.6rem;
+}
+
+/*=============== Estilo personalizado para la alerta ===============*/
+.swal2-custom-popup h2{
+  font-weight: 400;
+}
+
+/* ------------------------------------- logged_out --------------------------------------- */
+.div-LoggedOut p{
+    color: goldenrod;
+}
+
+.con-otros{
+    margin-top: 4rem;
+}
+
+.con-otros a {
+    border-radius: 1rem;
+    border: 0.1rem solid #1c1c1c;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0rem;
+    padding: 1rem;
+    width: 100%;
+    text-decoration: none;
 }
 
-.loggedout button{
-    height: 2rem !important; 
-    padding-top: 0rem !important;
-    padding-bottom: 0rem !important;
+.LoggedOut_btn a{
+    background: #1c1c1c;
+    color: white;
 }
-
