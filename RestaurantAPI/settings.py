@@ -175,6 +175,10 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Esto garantiza que la sesión se cierr
 
 # =============== AUTOESQUEMA => ARCHIVO DE DOCUMENTACIÓN DE LA API =============== #
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.BasicAuthentication",  # Para autenticación básica HTTP
+        "rest_framework.authentication.SessionAuthentication",  # Para autenticación basada en cookies (sessionid)
+    ),
     # "DEFAULT_PERMISSION_CLASSES": [
     #     "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
     # ],

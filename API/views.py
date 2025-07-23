@@ -6,8 +6,9 @@ from .models import Entrantes, Principales, Postre, Bebida, Precio
 from .serializers import EntrantesSerializer, PrincipalesSerializer, PostreSerializer, BebidaSerializer, PrecioSerializer
 
 # ViewSet base para manejar las restricciones de creación de ítems
-class MenuItemViewSet(viewsets.ReadOnlyModelViewSet):
+class MenuItemViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # http_method_names = ["get"]  # Solo se permiten solicitudes GET
 
     # Método para validación personalizada en la creación de un nuevo objeto
     def create(self, request, *args, **kwargs):
@@ -43,7 +44,7 @@ class BebidaViewSet(MenuItemViewSet):
     serializer_class = BebidaSerializer
 
 # ViewSet para gestionar el Precio
-class PrecioViewSet(viewsets.ReadOnlyModelViewSet):
+class PrecioViewSet(viewsets.ModelViewSet):
     queryset = Precio.objects.all()
     serializer_class = PrecioSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

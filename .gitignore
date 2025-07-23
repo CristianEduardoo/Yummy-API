@@ -27,3 +27,4 @@ cert.key
 
 # Extras
 .dockerignore
+ddbb_connect.py
